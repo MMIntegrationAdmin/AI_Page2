@@ -2,12 +2,14 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import openai
 from openai import OpenAI
+import os
 
 app = Flask(__name__)
 CORS(app)
 
 # Initialize OpenAI client and assistant/thread details
-client = OpenAI(api_key='your_openai_api_key')
+openai_api_key = os.getenv("API_KEY")
+client = openai.OpenAI(api_key=openai_api_key)
 assistant_id = "asst_LpgGqNaMQGdwz5Cjrk7q52Nn"
 thread_id = "thread_1fVhNglC0T9n3rKj2wdcRfZ5"
 
