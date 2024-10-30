@@ -46,7 +46,7 @@ def send_message(content):
             for content_block in message.content
             if hasattr(content_block, 'text') and hasattr(content_block.text, 'value')
         ]
-        return assistant_responses[-1] if assistant_responses else "No response."
+        return assistant_responses[0] if assistant_responses else "No response."
     return "Error: The request did not complete."
 
 if __name__ == "__main__":
